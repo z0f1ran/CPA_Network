@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <h1 class="mb-4">TrackLink Web App</h1>
+
+    <form action="/generate" method="post" class="mb-4">
+        <div class="form-group">
+            <label for="original_url">Enter Original URL:</label>
+            <input type="url" name="original_url" id="original_url" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Tracking Link</button>
+    </form>
+
+    <form action="{{ url_for('view_stats') }}" method="post">
+        <div class="form-group">
+            <label for="hash_token">Enter Hash Token:</label>
+            <input type="text" name="hash_token" id="hash_token" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-secondary">View Stats</button>
+    </form>
+
+    
+    
+</body>
+</html>
