@@ -35,14 +35,14 @@ def generate_link():
     db.session.add(new_link)
     db.session.commit()
 
-    tracking_url = url_for('track_link', tracking_id=hash_token, _external=True)
+    tracking_url = url_for('track_link', tracking_id=tracking_id, _external=True)
     stats_url = url_for('view_stats', hash_token=hash_token, _external=True)
 
     return render_template('generated_link.html', tracking_url=tracking_url, stats_url=stats_url, hash_token=hash_token)
 
 @app.route('/<tracking_id>')
 def track_link(tracking_id):
-    link = TrackingLink.query.filter_by(hash_token=tracking_id).first()
+    link = TrackingLink.query.filter_by(id=tracking_id).first()
     if link:
         link.click_count += 1
         db.session.commit()
