@@ -1,25 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generated Tracking Link</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f2f8f8;
+            color: #003366;
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            margin: 0;
+            padding: 50px 0; /* Отступ сверху для центрирования блока */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Смещение вверх по вертикали */
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border: 2px solid #66b2b2;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 800px; /* Увеличиваем ширину блока */
+        }
+
+        h1 {
+            color: #004080;
+            text-align: center;
+        }
+
+        p {
+            color: #005c99;
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #0080cc;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .btn-primary,
+        .btn-secondary,
+        input[type="submit"] {
+            background-color: #0080cc;
+            border: 2px solid #0080cc;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary {
+            font-size: 16px; /* Уменьшаем размер текста во второй кнопке */
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover,
+        input[type="submit"]:hover {
+            background-color: #004080;
+            border-color: #004080;
+        }
+    </style>
 </head>
-<body class="container mt-5">
-    <!-- ... -->
-<p>Your tracking link has been generated:</p>
-<p><strong>{{ tracking_url }}</strong></p>
-<p>Hash Token: <strong>{{ hash_token }}</strong></p>
 
-<p>Copy and use this link to track clicks.</p>
+<body>
+    <div class="container">
+        <h1>Generated Tracking Link</h1>
 
-<a href="{{ tracking_url }}" class="btn btn-primary" target="_blank">Visit Tracking Link</a>
-<form action="{{ url_for('view_stats') }}" method="post" style="display: inline;">
-    <input type="hidden" name="hash_token" value="{{ hash_token }}">
-    <button type="submit" class="btn btn-secondary">View Stats</button>
-</form>
+        <p>Your tracking link has been generated:</p>
+        <p><strong>{{ tracking_url }}</strong></p>
+        <p>Hash Token: <strong>{{ hash_token }}</strong></p>
 
+        <p>Copy and use this link to track clicks.</p>
+
+        <a href="{{ tracking_url }}" class="btn btn-primary" target="_blank">Visit Tracking Link</a>
+        <form action="{{ url_for('view_stats') }}" method="post" style="display: inline;">
+            <input type="hidden" name="hash_token" value="{{ hash_token }}">
+            <button type="submit" class="btn btn-secondary">View Stats</button>
+        </form>
+    </div>
 </body>
+
 </html>

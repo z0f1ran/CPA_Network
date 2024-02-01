@@ -1,21 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracking Link Stats</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f2f8f8;
+            color: #003366;
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            margin: 0;
+            padding: 50px 0; /* Отступ сверху для центрирования блока */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Смещение вверх по вертикали */
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border: 2px solid #66b2b2;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 800px; /* Увеличиваем ширину блока */
+        }
+
+        h1 {
+            color: #004080;
+            text-align: center;
+        }
+
+        p {
+            color: #005c99;
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #0080cc;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 5px;
+        }
+
+        .btn-primary {
+            background-color: #0080cc;
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #004080;
+        }
+    </style>
 </head>
-<body class="container mt-5">
-    <h1 class="mb-4">Tracking Link Stats</h1>
-    
-    <p>Original URL: <strong>{{ link.original_url }}</strong></p>
-    <p>Tracking ID: <strong>{{ link.id }}</strong></p>
-    <p>Hash Token: <strong>{{ link.hash_token }}</strong></p>
-    <p>Click Count: <strong>{{ link.click_count }}</strong></p>
 
-    <a href="{{ url_for('track_link', tracking_id=link.id) }}" class="btn btn-primary" target="_blank">Visit Tracking Link</a>
+<body>
+    <div class="container">
+        <h1>Tracking Link Stats</h1>
 
+        <p>Original URL: <strong>{{ link.original_url }}</strong></p>
+        <p>Tracking ID: <strong>{{ link.id }}</strong></p>
+        <p>Hash Token: <strong>{{ link.hash_token }}</strong></p>
+        <p>Click Count: <strong>{{ link.click_count }}</strong></p>
+        <p></p>
+        <a href="{{ url_for('track_link', tracking_id=link.id) }}" class="btn btn-primary" target="_blank">Visit Tracking Link</a>
+    </div>
 </body>
-</html> 
+
+</html>

@@ -1,34 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f2f8f8;
+            color: #003366;
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            margin: 0;
+            padding: 50px 20px; /* Отступ сверху и справа для центрирования блока */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
+        .container {
+            background-color: #ffffff;
+            border: 2px solid #66b2b2;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* Максимальная ширина блока */
+            width: 100%;
+        }
+
+        h1 {
+            color: #004080;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #ffffff;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #ffcc00;
+            border: 2px solid #ffcc00;
+            color: #003366;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #cc9900;
+            border-color: #cc9900;
+        }
+    </style>
 </head>
-<body class="bg-light.bg-gradient">
-    <div class="container mt-5 bg-danger bg-gradient rounded p-5">
-        <h1 class="mb-4 text-light">TrackLink Web App</h1>
 
-        <form action="/generate" method="post" class="mb-4">
-            <div class="form-group">
-                <label for="original_url" class="text-light m-2">Enter Original URL:</label>
-                <input type="url" name="original_url" id="original_url" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-warning mt-2 mb-2 rounded-pill">Generate Tracking Link</button>
+<body>
+    <div class="container">
+        <h1>TrackLink Web App</h1>
+
+        <form action="/generate" method="post">
+            <label for="original_url">Enter Original URL:</label>
+            <input type="url" name="original_url" id="original_url" required>
+
+            <button type="submit">Generate Tracking Link</button>
         </form>
 
         <form action="{{ url_for('view_stats') }}" method="post">
-            <div class="form-group">
-                <label for="hash_token" class="text-light m-2">Enter Hash Token:</label>
-                <input type="text" name="hash_token" id="hash_token" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary mt-2 mb-2 rounded-pill">View Stats</button>
+            <label for="hash_token">Enter Hash Token:</label>
+            <input type="text" name="hash_token" id="hash_token" required>
+
+            <button type="submit">View Stats</button>
         </form>
     </div>
-    
-    
 </body>
+
 </html>
