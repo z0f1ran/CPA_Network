@@ -48,7 +48,7 @@ def track_link(tracking_id):
         db.session.commit()
         return redirect(link.original_url)
     else:
-        return "Link not found", 404
+        return render_template('404.html'), 404
 
 @app.route('/stats', methods=['POST'])
 def view_stats():
@@ -57,7 +57,7 @@ def view_stats():
     if link:
         return render_template('stats.html', link=link)
     else:
-        return "Link not found", 404
+        return render_template('404.html'), 404
     
 if __name__ == '__main__':
     engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
